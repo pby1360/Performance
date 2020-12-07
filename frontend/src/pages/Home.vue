@@ -6,9 +6,9 @@
 export default {
   mounted() {
     console.log('test');
-  }
+  },
 
-}
+};
 </script>
 
 <style>
