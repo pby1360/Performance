@@ -1,12 +1,20 @@
 <template>
-  <div>test</div>
+  <div>
+    <p>{{ message }}</p>
+    <router-link to="/main">Main</router-link>
+  </div>
 </template>
 
 <script>
 
 export default {
+  data() {
+    return {
+      message: '',
+    };
+  },
   async mounted() {
-    console.log('mounted');
+    console.log(this.$router);
     try {
       const response = await this.$axios.get('/home', {
         headers: {
@@ -14,8 +22,7 @@ export default {
           'Content-Type': 'application/json; charset = utf-8',
         },
       });
-      const data = await response;
-      console.log(data);
+      this.message = await response.data;
     } catch (error) {
       console.log(error);
     }
