@@ -14,7 +14,6 @@ export default {
     };
   },
   async mounted() {
-    console.log(this.$router);
     try {
       const response = await this.$axios.get('/home', {
         headers: {
