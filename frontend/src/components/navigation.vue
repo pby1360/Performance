@@ -1,12 +1,15 @@
 <template>
   <div class="nav">
-    <div>PERFORMANCE</div>
+    <div class="logo">PERFORMANCE</div>
     <ul
       v-for="(item, index) in navData"
       :key="index"
     >
-      <!-- {{ item.name }} -->
-      <li><router-link :to="item.path">{{ item.name }}</router-link></li>
+      <li>
+        <router-link :to="item.path">
+          {{ item.name }}
+        </router-link>
+      </li>
     </ul>
   </div>
 </template>
@@ -29,5 +32,14 @@ export default {
 .nav {
   background-color: #333;
   color: white;
+  
+  ul {
+    li {
+      a:hover {}
+      a:focus {}
+    }
+  }
 }
+.logo {}
+
 </style>
