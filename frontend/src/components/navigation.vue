@@ -1,13 +1,14 @@
 <template>
   <div class="nav">
     <div class="logo">
-      <span>PERFORMANCE</span>
+      <img src="../asset/Performance_logo5.png" width="60" /><span>PERFORMANCE</span>
     </div>
     <ul>
       <li
         v-for="(item, index) in navData"
         :key="index"
         @click="$router.push(item.path)"
+        :class="{ menuActive: item.path === $route.path }"
       >
         <router-link :to="item.path">
           {{ item.name }}
@@ -24,14 +25,13 @@ export default {
   data() {
     return {
       navData: router.options.routes,
+      isActive: true,
     };
   },
   mounted() {
+    console.log(this.$route);
   },
   methods: {
-    click(e) {
-      console.log(e);
-    },
   },
 };
 </script>
@@ -61,18 +61,26 @@ export default {
     li:hover {
       background-color: #505050;
     }
-    li:has(a.rounter-link-exact-active) {
-      background-color: #505050;
-    }
+    // li:has(a.rounter-link-exact-active) {
+    //   background-color: #505050;
+    // }
+    // 자식 태그 활성화 시 부모 배경색 변경
   }
 }
 .logo {
-  font-size: 1.5rem;
-  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.75rem;
+  padding: 2rem 0;
   font-weight: bold;
   background-color: #22609D;
   color: white;
   text-align: center;
+}
+
+.menuActive {
+  background-color: #505050;
 }
 
 </style>

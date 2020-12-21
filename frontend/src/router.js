@@ -7,7 +7,7 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: '홈',
       component: () => import(
         /* webpackChunkName: "main" */
         './pages/Home.vue'
@@ -15,7 +15,7 @@ const router = new Router({
     },
     {
       path: '/main',
-      name: 'Main',
+      name: '대시보드',
       component: () => import(
         /* webpackChunkName: "main" */
         './pages/Main.vue'
@@ -23,7 +23,7 @@ const router = new Router({
     },
     {
       path: '/contents',
-      name: 'Contents',
+      name: '활동',
       component: () => import(
         /* webpackChunkName: "main" */
         './pages/Contents.vue'
@@ -32,11 +32,11 @@ const router = new Router({
   ],
 });
 
-router.beforeEach((to, from, next) => {
-  console.log(from);
-  console.log(to);
-  next();
-});
+// router.beforeEach((to, from, next) => {
+//   console.log(from);
+//   console.log(to);
+//   next();
+// });
 
 router.onError((err) => {
   console.log(err);
